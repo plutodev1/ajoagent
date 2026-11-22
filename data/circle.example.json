@@ -1,0 +1,10 @@
+{
+  "name": "[CIRCLE NAME] Ajo",
+  "organiser": "[ORGANISER NAME]",
+  "contributionUsdt": "2",
+  "members": [
+    { "name": "[MEMBER 1]", "wallet": "0x0000000000000000000000000000000000000001" },
+    { "name": "[MEMBER 2]", "wallet": "0x0000000000000000000000000000000000000002" },
+    { "name": "[MEMBER 3]", "wallet": "0x0000000000000000000000000000000000000003" }
+  ]
+}
