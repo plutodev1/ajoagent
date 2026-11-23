@@ -7,4 +7,4 @@
 - [x] 5. Agent identity panel with 8004scan link (Req 4)
 - [x] 6. Exercise-book styling, mobile-first (Req 5)
 - [x] 7. Agent hook: on save of `data/circle.json`, rebuild the dashboard data
-- [ ] 8. Deploy and add the URL to `agent.json` services
+- [x] 8. Deploy and add the URL to `agent.json` services
