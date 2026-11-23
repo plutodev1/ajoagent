@@ -18,7 +18,26 @@ export type Payout = {
   payoutTx: Hex
   at: string
 }
-export type Round = { index: number; recipient: Address; contributions: Contribution[]; payout?: Payout }
+/**
+ * A swap that has been broadcast but whose recipient has not been paid yet.
+ * Written to disk the moment the swap lands, so a crash between the swap and
+ * the payout can be resumed instead of stranding the cNGN in the agent wallet.
+ */
+export type Pending = {
+  rfqId: string
+  claimToken: string
+  usdtIn: string
+  cngnBefore: string
+  swapTx: Hex
+  at: string
+}
+export type Round = {
+  index: number
+  recipient: Address
+  contributions: Contribution[]
+  pending?: Pending
+  payout?: Payout
+}
 export type Circle = {
   name: string
   organiser: string

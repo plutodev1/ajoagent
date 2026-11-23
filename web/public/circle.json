@@ -1,0 +1,108 @@
+{
+  "_comment": "DEV FIXTURE for building the dashboard. agent + agentId are REAL (registered on ERC-8004, Celo mainnet). All txHash/swapTx/payoutTx values are FAKE and will 404 on Celoscan. Not an init template - use circle.example.json for `ajo init`.",
+  "name": "Ikoyi Traders Ajo",
+  "organiser": "Favour Ekeleme",
+  "contributionUsdt": "2",
+  "agent": "0xd3775dF8985310aCa976d4ed9413664d208f0d00",
+  "agentId": "10105",
+  "members": [
+    {
+      "name": "Favour Ekeleme",
+      "wallet": "0x1f9840a85d5af5bf1d1762f925bdaddc4201f984"
+    },
+    {
+      "name": "Chidera Okonkwo",
+      "wallet": "0x2a7d8c1b4e6f0932a5c8d7e1b3f4a6c9d0e2f851"
+    },
+    {
+      "name": "Amaka Nwosu",
+      "wallet": "0x3b8e9d2c5f7a0143b6d9e8f2c4a5b7d0e1f39622"
+    }
+  ],
+  "startBlock": "83381460",
+  "lastScannedBlock": "83493877",
+  "rounds": [
+    {
+      "index": 0,
+      "recipient": "0x1f9840a85d5af5bf1d1762f925bdaddc4201f984",
+      "contributions": [
+        {
+          "from": "0x1f9840a85d5af5bf1d1762f925bdaddc4201f984",
+          "amount": "2000000",
+          "txHash": "0x7a1c3e9d02b84f6517ac29de4b0f81236a5c7d9e13f402b8c6a5d7e90f1b2c34",
+          "block": "83381512"
+        },
+        {
+          "from": "0x2a7d8c1b4e6f0932a5c8d7e1b3f4a6c9d0e2f851",
+          "amount": "2000000",
+          "txHash": "0x9b21399f1ccdef2ff7cd0ce4e02305cdd441c8732dcd4d0a69c9a703cfa38d44",
+          "block": "83383190"
+        },
+        {
+          "from": "0x3b8e9d2c5f7a0143b6d9e8f2c4a5b7d0e1f39622",
+          "amount": "2000000",
+          "txHash": "0x9e0a52c7d4138b6f05a9e327c1d84b60f7259ae3c8d016b45f2a7c9e30d81b55",
+          "block": "83385004"
+        }
+      ],
+      "payout": {
+        "rfqId": "rfq_01JDQ8M4XKP2VN7T3YB9FZ6WQA",
+        "usdtIn": "6000000",
+        "cngnOut": "8678803008",
+        "swapTx": "0x1c4f7b2a9d0e36815fa2c7d49b0e35176ad82c9f04e6b1d73a5c80f29e4d1366",
+        "payoutTx": "0xd950f461997f62a8a15a94265ad9e687b1be34e3bc796f4c3ad049eee675b5fc",
+        "at": "2026-11-02T14:22:07.411Z"
+      }
+    },
+    {
+      "index": 1,
+      "recipient": "0x2a7d8c1b4e6f0932a5c8d7e1b3f4a6c9d0e2f851",
+      "contributions": [
+        {
+          "from": "0x1f9840a85d5af5bf1d1762f925bdaddc4201f984",
+          "amount": "2000000",
+          "txHash": "0x8b36e0d9a47c1250f3e8b6a1d94c7025e60f3a8b2d5c91e07f46a3b8c20d9e71",
+          "block": "83428663"
+        },
+        {
+          "from": "0x2a7d8c1b4e6f0932a5c8d7e1b3f4a6c9d0e2f851",
+          "amount": "2000000",
+          "txHash": "0x1344df3f2ac2274f27e4e24a0a6c3d358e682064523f6c270ae26de898a73f9e",
+          "block": "83430221"
+        },
+        {
+          "from": "0x3b8e9d2c5f7a0143b6d9e8f2c4a5b7d0e1f39622",
+          "amount": "2000000",
+          "txHash": "0x6a05c82f19d47e3b0f58a2c91d6e043759b1c0e8a37d52f6b904e1a7c3d8f022",
+          "block": "83433907"
+        }
+      ],
+      "payout": {
+        "rfqId": "rfq_01JDRB7Q2WYE5HK8M4NC1TXVJD",
+        "usdtIn": "6000000",
+        "cngnOut": "8690120544",
+        "swapTx": "0x3d9f14b7e02a865c1047fb3d8a52e9014c7b6d20f8a3e51097c4b2d60e8a7f13",
+        "payoutTx": "0x7c2e06a5d93f148b0e6a1c47d205f9386b0d4a71e5c93f82a06d7b1e4c05293a",
+        "at": "2026-11-13T09:41:55.882Z"
+      }
+    },
+    {
+      "index": 2,
+      "recipient": "0x3b8e9d2c5f7a0143b6d9e8f2c4a5b7d0e1f39622",
+      "contributions": [
+        {
+          "from": "0x1f9840a85d5af5bf1d1762f925bdaddc4201f984",
+          "amount": "2000000",
+          "txHash": "0x0b7d3a16c58e0924f7a1d6b03e9c5847210fd6a93b8c0e52d14f7a69c3b0e845",
+          "block": "83490114"
+        },
+        {
+          "from": "0x2a7d8c1b4e6f0932a5c8d7e1b3f4a6c9d0e2f851",
+          "amount": "2000000",
+          "txHash": "0x4e8c0b59d2a763f1085bc4e60a3d927614fb8c05e9d2a738106c5b4e2f9a0d67",
+          "block": "83492548"
+        }
+      ]
+    }
+  ]
+}

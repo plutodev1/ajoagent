@@ -1,0 +1,12 @@
+{
+  "name": "Rebuild dashboard on circle.json save",
+  "description": "When data/circle.json is written, copy it into web/public/ and rebuild the dashboard.",
+  "trigger": {
+    "event": "file:save",
+    "pattern": "data/circle.json"
+  },
+  "action": {
+    "type": "shell",
+    "command": "cp data/circle.json web/public/circle.json && cd web && npm run build"
+  }
+}

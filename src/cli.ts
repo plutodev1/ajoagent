@@ -19,7 +19,11 @@ async function status() {
   console.log(`Holds: ${await fmt(TOKENS.USDT, await balanceOf(TOKENS.USDT, agent))}, ${await fmt(TOKENS.cNGN, await balanceOf(TOKENS.cNGN, agent))}`)
   console.log(`Contribution: ${await fmt(TOKENS.USDT, need)} per member per round\n`)
   for (const round of c.rounds) {
-    const label = round.payout ? `PAID ${await fmt(TOKENS.cNGN, BigInt(round.payout.cngnOut))}` : 'open'
+    const label = round.payout
+      ? `PAID ${await fmt(TOKENS.cNGN, BigInt(round.payout.cngnOut))}`
+      : round.pending
+        ? `SETTLING - swap ${round.pending.swapTx.slice(0, 10)}… sent, recipient not paid yet. Run payout to resume.`
+        : 'open'
     console.log(`Round ${round.index + 1} -> ${memberName(c, round.recipient)}  [${label}]`)
   }
   const owing = await outstanding(c)
@@ -34,7 +38,8 @@ async function run(intervalSec: number) {
       if (currentRound(c).payout) { console.log('Circle complete.'); return }
       const n = await syncContributions(c)
       if (n) console.log(`Credited ${n} new contribution(s).`)
-      if ((await outstanding(c)).length === 0) await payoutRound(c)
+      // Resume an unfinished swap even if the round is no longer fully paid in.
+      if (currentRound(c).pending || (await outstanding(c)).length === 0) await payoutRound(c)
     } catch (e) {
       console.error('tick error:', (e as Error).message)
     }

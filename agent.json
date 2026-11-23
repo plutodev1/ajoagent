@@ -10,7 +10,11 @@
     }
   ],
   "services": [
-    { "name": "web", "endpoint": "https://github.com/plutodev1/ajoagent" }
+    {
+      "name": "web",
+      "endpoint": "https://github.com/plutodev1/ajoagent",
+      "note": "Dashboard lives in web/. After deploy, replace this endpoint with the live URL (Vercel or GitHub Pages)."
+    }
   ],
   "x402Support": false,
   "active": true,
