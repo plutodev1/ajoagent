@@ -3,6 +3,12 @@
   "name": "AjoAgent",
   "description": "Runs Ajo/Esusu savings circles on Celo: collects USD₮ contributions, converts each round's pot to cNGN on Textile FX, and pays the member whose turn it is.",
   "image": "",
+  "registrations": [
+    {
+      "agentId": 10105,
+      "agentRegistry": "eip155:42220:0x8004A169FB4a3325136EB29fA0ceB6D2e539a432"
+    }
+  ],
   "services": [
     { "name": "web", "endpoint": "https://github.com/plutodev1/ajoagent" }
   ],

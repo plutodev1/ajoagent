@@ -23,6 +23,8 @@ export type Circle = {
   name: string
   organiser: string
   contributionUsdt: string // human units, e.g. "5"
+  agent: Address // agent wallet; members send their USD₮ here
+  agentId?: string // ERC-8004 agent ID, once `register` has run
   members: Member[] // rotation order
   startBlock: string
   lastScannedBlock: string
@@ -55,6 +57,7 @@ export async function initCircle(templatePath: string) {
     name: t.name,
     organiser: t.organiser,
     contributionUsdt: String(t.contributionUsdt),
+    agent,
     members,
     startBlock: block.toString(),
     lastScannedBlock: block.toString(),
