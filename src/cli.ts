@@ -49,18 +49,19 @@ async function run(intervalSec: number) {
 
 const help = `AjoAgent: pays Ajo circles out in cNGN on Celo
 
-  npm run ajo -- init <template.json>      create data/circle.json from a template
-  npm run ajo -- status                    show rounds, who has paid, balances
-  npm run ajo -- sync                      scan USD₮ contributions into the agent wallet
-  npm run ajo -- preview <usdtAmount>      free Textile FX USD₮->cNGN price check
-  npm run ajo -- payout [--force]          convert the pot and pay this round's recipient
-  npm run ajo -- run [seconds]             autonomous loop: sync, pay out when everyone has paid
-  npm run ajo -- register <agentJsonUrl>   register on ERC-8004 identity registry
-  npm run ajo -- set-uri <agentId> <url>   update the ERC-8004 agent URI
-  npm run ajo -- verify <txHash>           check a tx carries our attribution tag
-  npm run ajo -- whoami                    print the agent wallet address
+  ajo init <template.json>      create data/circle.json from a template
+  ajo status                    show rounds, who has paid, balances
+  ajo sync                      scan USD₮ contributions into the agent wallet
+  ajo preview <usdtAmount>      free Textile FX USD₮->cNGN price check
+  ajo payout [--force]          convert the pot and pay this round's recipient
+  ajo run [seconds]             autonomous loop: sync, pay out when everyone has paid
+  ajo register <agentJsonUrl>   register on ERC-8004 identity registry
+  ajo set-uri <agentId> <url>   update the ERC-8004 agent URI
+  ajo verify <txHash>           check a tx carries our attribution tag
+  ajo whoami                    print the agent wallet address
 
-DRY_RUN=1 in .env prints every transaction without sending it.`
+DRY_RUN=1 in .env prints every transaction without sending it.
+Without the 'ajo' wrapper on PATH, run any command as: npm run ajo -- <command>`
 
 async function main() {
   switch (cmd) {
