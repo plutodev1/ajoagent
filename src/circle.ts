@@ -62,6 +62,17 @@ export function saveCircle(c: Circle) {
   fs.writeFileSync(CIRCLE_FILE, JSON.stringify(c, null, 2))
 }
 
+/** The ERC-8004 agent id, read back from agent.json so the dashboard can link to 8004scan. */
+function registeredAgentId(): string | undefined {
+  try {
+    const a = JSON.parse(fs.readFileSync(path.resolve('agent.json'), 'utf8'))
+    const id = a.registrations?.[0]?.agentId
+    return id === undefined ? undefined : String(id)
+  } catch {
+    return undefined // not registered yet; the dashboard just omits the panel
+  }
+}
+
 export async function initCircle(templatePath: string) {
   const t = JSON.parse(fs.readFileSync(templatePath, 'utf8'))
   if (!t.members?.length || t.members.length < 2) throw new Error('A circle needs at least 2 members')
@@ -77,6 +88,7 @@ export async function initCircle(templatePath: string) {
     organiser: t.organiser,
     contributionUsdt: String(t.contributionUsdt),
     agent,
+    agentId: registeredAgentId(),
     members,
     startBlock: block.toString(),
     lastScannedBlock: block.toString(),

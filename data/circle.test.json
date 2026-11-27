@@ -1,0 +1,15 @@
+{
+  "name": "Pluto Circle",
+  "organiser": "Favour Ekeleme",
+  "contributionUsdt": "0.5",
+  "members": [
+    {
+      "name": "Favour (wallet A)",
+      "wallet": "0x3E9Ba2681Fa796023209584ecE8570ae96Eec4b8"
+    },
+    {
+      "name": "Favour (wallet B)",
+      "wallet": "0x4A14ff3DA5B59Ebde17591611F8c449DC704259a"
+    }
+  ]
+}
