@@ -56,11 +56,13 @@ the dashboard updates itself. No manual step in between.
 Three decisions I didn't specify:
 
 1. **Vanilla TS over React**, weighed against the 3G requirement.
-2. **A demo-data banner.** The dashboard currently renders a fixture whose transaction
-   hashes are fake. Rather than hide that, Kiro detects the fixture's `_comment` field and
-   shows "Demo data — transaction links will 404 on Celoscan. This is expected." It appears
-   only when the data is demo data. For a product whose entire pitch is verifiability,
-   quietly showing unverifiable links would have been the worse failure.
+2. **A demo-data banner.** The dashboard was built against a fixture whose transaction
+   hashes were fake, because no real circle had run yet. Rather than hide that, Kiro made
+   the page detect the fixture's `_comment` field and warn: "Demo data — transaction links
+   will 404 on Celoscan. This is expected." For a product whose entire pitch is
+   verifiability, quietly showing unverifiable links would have been the worse failure.
+   The live site now serves a real circle, so the banner correctly does not appear — but
+   the honesty check is still in the code.
 3. **Self-hosting the font.** The exercise-book theme uses a handwriting face, originally
    pulled from Google Fonts. Asked to reconsider against the 3G requirement, Kiro replaced
    it with a 74 kB local `@font-face`. The deployed page now makes **zero third-party
@@ -86,3 +88,11 @@ Every claim above is checkable:
 - Agent on ERC-8004: https://8004scan.io/agents/celo/10105
 - Registration transaction: https://celoscan.io/tx/0xf334706a1f711841698e8dfd1832222d65347f058fdf5019c249259522b88a07
 - Source: https://github.com/plutodev1/ajoagent
+
+The dashboard is showing a real circle. Round 1 of "Pluto Circle" collected 1 USD₮ and paid
+out 1,441.969372 cNGN on Celo mainnet:
+
+- Swap (USD₮ → cNGN on Textile FX): https://celoscan.io/tx/0x779311efad7c3c0613326d5d93e7427303827098f676e8a4190ff07926cf33ae
+- Payout to the member: https://celoscan.io/tx/0x8c8c44e877e3e4eb643409c1233d0b0c6bc3caf6e10c0b8dd23b6ac1bd826777
+
+Every one of those transactions carries the ERC-8021 attribution tag `celo_e6beca1e3d05`.
