@@ -4,7 +4,8 @@
   "description": "AjoAgent: pays out Ajo/Esusu savings circles in cNGN on Celo via Textile FX",
   "scripts": {
     "ajo": "tsx src/cli.ts",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "test": "tsx --test test/*.test.ts"
   },
   "license": "MIT",
   "dependencies": {

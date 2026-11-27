@@ -13,6 +13,27 @@ Every transaction AjoAgent sends carries an ERC-8021 attribution tag, and the ag
 
 Built for Celo's *Agents Open for Business* hackathon (Stablecoin Corridors track). It follows on from [AjoBook](https://github.com/plutodev1/ajobook-stellar), my earlier onchain Ajo ledger. AjoAgent is new code, written from 20 Nov 2026.
 
+## Live on Celo mainnet
+
+**Member dashboard: https://ajoagent-dashboard.vercel.app** — read-only, no wallet connection, works on a cheap phone. It is showing a real circle.
+
+| | |
+|---|---|
+| Agent wallet | [`0xd3775dF8985310aCa976d4ed9413664d208f0d00`](https://celoscan.io/address/0xd3775dF8985310aCa976d4ed9413664d208f0d00) |
+| ERC-8004 agent ID | [**10105** on 8004scan](https://8004scan.io/agents/celo/10105) |
+| Attribution tag | `celo_e6beca1e3d05` — on every transaction below |
+
+Round 1 of "Pluto Circle" collected 1 USD₮ from two members and paid out **1,441.969372 cNGN**:
+
+| Step | Transaction |
+|---|---|
+| ERC-8004 registration | [`0xf334706a…`](https://celoscan.io/tx/0xf334706a1f711841698e8dfd1832222d65347f058fdf5019c249259522b88a07) |
+| Approve USD₮ to the Textile reactor | [`0x08172495…`](https://celoscan.io/tx/0x08172495da8bdeabc51e9043ce74f629a78b1c2f25abb083626f614c60847b91) |
+| Textile FX swap USD₮ → cNGN | [`0x779311ef…`](https://celoscan.io/tx/0x779311efad7c3c0613326d5d93e7427303827098f676e8a4190ff07926cf33ae) |
+| cNGN payout to the member | [`0x8c8c44e8…`](https://celoscan.io/tx/0x8c8c44e877e3e4eb643409c1233d0b0c6bc3caf6e10c0b8dd23b6ac1bd826777) |
+
+Check any of them yourself: `npm test` verifies the attribution tag on all four onchain.
+
 ## How it works
 
 ```
@@ -70,6 +91,19 @@ Copy the printed `registrations` entry into `agent.json`, then push again.
 ```bash
 npm run ajo -- verify 0x<txHash>
 ```
+
+## Tests
+
+```bash
+npm test
+```
+
+Covers the circle state machine (rotation order, pot arithmetic, the `pending` guard that
+stops a crashed payout from swapping twice), the integrity of the shipped circle data, and
+read-only checks against Celo mainnet: that all four transactions of the real payout
+succeeded and carry the attribution tag, that the agent owns ERC-8004 identity 10105, and
+that the agent wallet settled clean. No key and no funds are needed — nothing is sent.
+Onchain checks skip automatically when offline.
 
 ## Hackathon rules this follows
 
