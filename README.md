@@ -110,7 +110,13 @@ Onchain checks skip automatically when offline.
 - Celo mainnet only. Corridor: USD₮ ↔ cNGN on Textile FX.
 - Attribution tag on every transaction (`sendTagged`).
 - ERC-8004 registration from the agent wallet.
-- Payouts go to circle members outside the team.
+- Payouts go to circle members, never back to the agent operator by design — `initCircle`
+  rejects the agent wallet as a member.
+
+**Status, stated plainly:** round 1 above was a self-funded proving run. Both member wallets
+are mine, deliberately, so that the first live execution of the swap risked only my own
+money. The code path it exercised is the same one a real circle uses. A circle with members
+outside the team is the next step, not something already done.
 
 ## License
 
